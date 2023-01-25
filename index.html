@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Heladeria Wafflehouse</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+        <div>
+           <a href="index.html"><img src="logo.jpg" class="logo" alt=""></a> 
+        </div>
+        <nav>
+            <a href="venta.html">VENTAS</a>
+            <a href="inventario.html">INVENTARIO</a>
+            <a href="incidencias.html">INCIDENCIAS</a>
+            <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');</style>
+        </nav>
+    </header>
+
+    <main>
+        <section class="resumen">
+            <div class="resumen-productos">
+
+            </div>
+
+            <div class="resumen-totalPagar">
+                <p class="otros">TOTAL: </p>
+                <P class="otros">DESCUENTO:</P>
+                <P class="otros">SUBTOTAL:</P>
+                <P class="total">TOTAL A PAGAR:</P>
+            </div>
+
+            <div class="resumen-metodoPago">
+
+                <label for="metodo"></label>
+                <select name="metodo" id="metodo">
+                    <option value="efectivo" autofocus>Efectivo</option>
+                    <option value="tarjeta">Tarjeta</option>
+                    <option value="bono">Bono</option>
+                </select>
+
+                <button class="pagar">PAGAR</button>
+
+            </div>
+        </section>
+
+        <section class="categorias">
+            <button>WAFFLES</button>
+            <button>BEBIDAS</button>
+            <button>ADICIONES</button>
+            <button>PROMOCIONES</button>
+        </section>
+
+        <section class="productos">
+
+        </section>
+    </main>
+
+  </body>
+
+</html>
