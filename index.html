@@ -16,7 +16,9 @@
             <a href="venta.html">VENTAS</a>
             <a href="inventario.html">INVENTARIO</a>
             <a href="incidencias.html">INCIDENCIAS</a>
-            <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');</style>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
         </nav>
     </header>
 
@@ -35,11 +37,12 @@
 
             <div class="resumen-metodoPago">
 
-                <label for="metodo"></label>
+                <label for="metodo">Metodo De Pago: </label>
                 <select name="metodo" id="metodo">
-                    <option value="efectivo" autofocus>Efectivo</option>
-                    <option value="tarjeta">Tarjeta</option>
-                    <option value="bono">Bono</option>
+                    <option value="efectivo" class="opcion" autofocus>Efectivo</option>
+                    <option value="transferencia" class="opcion">Transferencia</option>
+                    <option value="tarjeta" class="opcion">Tarjeta</option>
+                    <option value="bono" class="opcion">Bono</option>
                 </select>
 
                 <button class="pagar">PAGAR</button>
