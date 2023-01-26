@@ -25,14 +25,25 @@
     <main>
         <section class="resumen">
             <div class="resumen-productos">
-
             </div>
 
             <div class="resumen-totalPagar">
-                <p class="otros">TOTAL: </p>
-                <P class="otros">DESCUENTO:</P>
-                <P class="otros">SUBTOTAL:</P>
-                <P class="total">TOTAL A PAGAR:</P>
+                <div class="total">
+                    <p class="otros">TOTAL: </p><p id="cuentaTotal"></p>
+                </div>
+                
+                <div class="descuento">
+                    <P class="otros">DESCUENTO:</P>
+                </div>
+                
+                <div class="subtotal">
+                    <P class="otros">SUBTOTAL:</P>
+                </div>
+                
+                <div class="totalPagar">
+                    <P class="total">TOTAL A PAGAR:</P>
+                </div>
+                
             </div>
 
             <div class="resumen-metodoPago">
@@ -51,17 +62,25 @@
         </section>
 
         <section class="categorias">
-            <button>WAFFLES</button>
+            <button onclick="bubble()">WAFFLES BUBBLE</button>
+            <button onclick="waffles()">WAFFLES</button>
+            <button onclick="bananas()">BANANAS</button>
+            <button>ENSALADAS DE FRUTAS</button>
+            <button>SALPICON</button>
+            <button>BROWNIE</button>
+            <button>COPAS DE HELADO</button>
+            <button>INFANTIL</button>
             <button>BEBIDAS</button>
             <button>ADICIONES</button>
-            <button>PROMOCIONES</button>
         </section>
 
         <section class="productos">
 
         </section>
     </main>
+    <script src="script.js">
 
+    </script>
   </body>
 
 </html>
