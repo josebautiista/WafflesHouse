@@ -1,4 +1,6 @@
 var total= 0
+var descuento=0
+var totalPagar=0
 
 function bubble(){
     
@@ -12,20 +14,20 @@ function bubble(){
         producto.classList.add("productosNuevo");
         producto.id=precio[i]
         producto.addEventListener("click", function () {
-            document.getElementById("cuentaTotal").textContent=total=total + parseInt(producto.id)
+            document.getElementById("Total").textContent=total=total + parseInt(producto.id)
+            document.getElementById("descuento").textContent= descuento
+            document.getElementById("totalPagar").textContent= totalPagar=total-descuento
 
-            const divResumen = document.createElement("div");
-            document.querySelector(".resumen-productos").appendChild(divResumen);
+            var nuevoDiv = document.createElement("div");
+            nuevoDiv.classList.add("resumenItem");
+            var nuevoItem = document.createElement("p");
+            var nuevoPrecio = document.createElement("p");
+            nuevoItem.innerHTML = "Bubble " + bubble[i]
+            nuevoPrecio.innerHTML = precio[i]
+            nuevoDiv.appendChild(nuevoItem);
+            nuevoDiv.appendChild(nuevoPrecio);
+            document.querySelector(".resumen-productos").appendChild(nuevoDiv);
 
-            const mostrarItem = document.createElement("p");
-            mostrarItem.textContent=bubble[i]
-            document.querySelector(".resumen-productos").appendChild(mostrarItem);
-
-            const mostrarPrecio = document.createElement("p");
-            mostrarPrecio.textContent=precio[i]
-            document.querySelector(".resumen-productos").appendChild(mostrarPrecio);
-
-            
         })
         producto.textContent = bubble[i] + " " + precio[i];
         document.querySelector(".productos").appendChild(producto);
@@ -44,7 +46,20 @@ function waffles(){
         producto.classList.add("productosNuevo");
         producto.id=precio[i]
         producto.addEventListener("click", function () {
-            document.getElementById("cuentaTotal").textContent=total=total + parseInt(producto.id)
+            document.getElementById("Total").textContent=total=total + parseInt(producto.id)
+            document.getElementById("descuento").textContent= descuento
+            document.getElementById("totalPagar").textContent= totalPagar=total-descuento
+
+            var nuevoDiv = document.createElement("div");
+            nuevoDiv.classList.add("resumenItem");
+            var nuevoItem = document.createElement("p");
+            var nuevoPrecio = document.createElement("p");
+            nuevoItem.innerHTML = "Waffle " + waffles[i]
+            nuevoPrecio.innerHTML = precio[i]
+            nuevoDiv.appendChild(nuevoItem);
+            nuevoDiv.appendChild(nuevoPrecio);
+            document.querySelector(".resumen-productos").appendChild(nuevoDiv);
+
         })
         producto.textContent = waffles[i] + " " + precio[i];
         document.querySelector(".productos").appendChild(producto);
@@ -62,7 +77,20 @@ function bananas() {
         producto.classList.add("productosNuevo");
         producto.id=precio[i]
         producto.addEventListener("click", function () {
-            document.getElementById("cuentaTotal").textContent=total=total + parseInt(producto.id)
+            document.getElementById("Total").textContent=total=total + parseInt(producto.id)
+            document.getElementById("descuento").textContent= descuento
+            document.getElementById("totalPagar").textContent= totalPagar=total-descuento
+
+            var nuevoDiv = document.createElement("div");
+            nuevoDiv.classList.add("resumenItem");
+            var nuevoItem = document.createElement("p");
+            var nuevoPrecio = document.createElement("p");
+            nuevoItem.innerHTML = "Banana " + bananas[i]
+            nuevoPrecio.innerHTML = precio[i]
+            nuevoDiv.appendChild(nuevoItem);
+            nuevoDiv.appendChild(nuevoPrecio);
+            document.querySelector(".resumen-productos").appendChild(nuevoDiv);
+
         })
         producto.textContent = bananas[i] + " " + precio[i];
         document.querySelector(".productos").appendChild(producto);

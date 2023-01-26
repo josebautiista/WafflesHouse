@@ -61,12 +61,26 @@ main{
 }
 
 .resumen-productos{
-    height: 60%;
+    padding: 10px;
+    height: 55%;
     border: 1px solid #F8599D;
     border-radius: 10px;
     margin: 5px 0;
+    overflow-y: scroll;
 }
 
+.resumen-productos::-webkit-scrollbar {
+    display: none;
+}
+
+.resumenItem{
+    display: flex;
+    padding: 10px;
+    background: #FEC5E5;
+    justify-content: space-between;
+    margin: 3px 0;
+    border-radius: 30px;
+}
 
 .resumen-totalPagar{
     display: flex;
@@ -76,6 +90,15 @@ main{
     border: 1px solid #F8599D;
     border-radius: 10px;
     padding: 10px;
+}
+
+.otros{
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.totalPagar{
+    font-weight: bold;
 }
 
 .resumen-metodoPago{
@@ -172,6 +195,7 @@ main{
 }
 
 .productosNuevo{
+    cursor: pointer;
     width: 25%;
     height: 25%;
     background: #F8599D;
@@ -180,3 +204,8 @@ main{
     border: none;
     margin: 10px;
 }
+
+.productosNuevo:hover{
+    background: #C5B3F9;
+}
+
