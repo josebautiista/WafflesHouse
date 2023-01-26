@@ -1,0 +1,51 @@
+<div id="factura">
+    <h1>Factura</h1>
+    <table id="tabla">
+      <tr>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Importe</th>
+    <!--  </tr>
+      <tr>
+        <td id="articulo">Artículo 1</td>
+        <td>2</td>
+        <td>$10.00</td>
+        <td>$20.00</td>
+      </tr>
+      <tr>
+        <td>Artículo 2</td>
+        <td>1</td>
+        <td>$20.00</td>
+        <td>$20.00</td>
+      </tr>
+      -->
+      <tr>
+        <td colspan="3">Subtotal</td>
+        <td>$40.00</td>
+      </tr>
+      <tr>
+        <td colspan="3">Impuestos (10%)</td>
+        <td>$4.00</td>
+      </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td id="ventaTotal"></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    var nombre = localStorage.getItem("nombres");
+    var cantidad = localStorage.getItem("cantidad")
+    console.log(nombre)
+    for (let i = 0; i < cantidad; i++) {
+
+      for (let i = 0; i < nombre.length; i++) {
+        var fila = document.createElement("tr")
+        fila.innerHTML= nombre
+        document.querySelector("#tabla").appendChild(fila);    
+      }
+      
+    }
+    
+</script>

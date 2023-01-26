@@ -23,7 +23,7 @@ function bubble(){
             var nuevoItem = document.createElement("p");
             var nuevoPrecio = document.createElement("p");
             nuevoItem.innerHTML = "Bubble " + bubble[i]
-            nuevoPrecio.innerHTML = precio[i]
+            nuevoPrecio.innerHTML = "$ " + precio[i]
             nuevoDiv.appendChild(nuevoItem);
             nuevoDiv.appendChild(nuevoPrecio);
             document.querySelector(".resumen-productos").appendChild(nuevoDiv);
@@ -55,7 +55,7 @@ function waffles(){
             var nuevoItem = document.createElement("p");
             var nuevoPrecio = document.createElement("p");
             nuevoItem.innerHTML = "Waffle " + waffles[i]
-            nuevoPrecio.innerHTML = precio[i]
+            nuevoPrecio.innerHTML = "$ " + precio[i]
             nuevoDiv.appendChild(nuevoItem);
             nuevoDiv.appendChild(nuevoPrecio);
             document.querySelector(".resumen-productos").appendChild(nuevoDiv);
@@ -69,7 +69,7 @@ function waffles(){
 function bananas() {
     
     document.querySelector(".productos").innerHTML = ''
-    let bananas=["Banana split", "bananita"]
+    let bananas=["split", "bananita"]
     let precio = [13000, 14000]
 
     for (let i = 0; i < bananas.length; i++) {
@@ -86,7 +86,7 @@ function bananas() {
             var nuevoItem = document.createElement("p");
             var nuevoPrecio = document.createElement("p");
             nuevoItem.innerHTML = "Banana " + bananas[i]
-            nuevoPrecio.innerHTML = precio[i]
+            nuevoPrecio.innerHTML = "$ " + precio[i]
             nuevoDiv.appendChild(nuevoItem);
             nuevoDiv.appendChild(nuevoPrecio);
             document.querySelector(".resumen-productos").appendChild(nuevoDiv);
@@ -97,3 +97,17 @@ function bananas() {
     }
 }
 
+
+
+//almacenar datos y pasar a factura//
+
+function storeData() {
+    var producto=document.getElementById("resumenProductos").children
+    var nombres=[]
+    for (let i = 0; i < producto.length; i++) {
+        nombres.push(producto[i].firstChild.textContent)
+    }
+    localStorage.setItem("nombres",nombres)
+    localStorage.setItem("cantidad", producto.length);
+    window.location.href = "factura.html";
+}

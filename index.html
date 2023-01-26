@@ -22,24 +22,23 @@
 
     <main>
         <section class="resumen">
-            <div class="resumen-productos">
+            <div id="resumenProductos" class="resumen-productos">
             </div>
 
             <div class="resumen-totalPagar">
                 <div class="total">
-                    <p class="otros">TOTAL: </p><p class="otros" id="Total"></p>
+                    <p class="otros">TOTAL: </p><p class="otros" id="Total">0</p>
                 </div>
                 
                 <div class="descuento">
-                    <P class="otros">DESCUENTO:</P><p class="otros" id="descuento"></p>
+                    <P class="otros">DESCUENTO:</P><p class="otros" id="descuento">0</p>
                 </div>
                 
                 <div class="totalPagar">
-                    <P class="total">TOTAL A PAGAR:</P><p id="totalPagar"></p>
+                    <P class="total">TOTAL A PAGAR:</P><p id="totalPagar">0</p>
                 </div>
-                
-            </div>
 
+                
             <div class="resumen-metodoPago">
 
                 <label for="metodo">Metodo De Pago: </label>
@@ -50,9 +49,11 @@
                     <option value="bono" class="opcion">Bono</option>
                 </select>
 
-                <button class="pagar">PAGAR</button>
+                <button class="pagar" onclick="storeData()">PAGAR</button>
 
             </div>
+            </div>
+
         </section>
 
         <section class="categorias">

@@ -63,7 +63,6 @@ main{
 .resumen-productos{
     padding: 10px;
     height: 55%;
-    border: 1px solid #F8599D;
     border-radius: 10px;
     margin: 5px 0;
     overflow-y: scroll;
@@ -86,10 +85,10 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 20%;
+    height: 35%;
     border: 1px solid #F8599D;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0px 5px;
 }
 
 .otros{
@@ -103,10 +102,9 @@ main{
 
 .resumen-metodoPago{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    height: 10%;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .categorias{
@@ -122,8 +120,8 @@ main{
 .pagar{
     font-family: 'Montserrat', sans-serif;
     margin-left: 30px;
-    width: 30%;
-    height: 90%;
+    width: 40%;
+    height: 150%;
     background: #C0A4F4;
     border: none;
     border-radius: 10px;
@@ -141,12 +139,11 @@ main{
 #metodo{
     font-family: 'Montserrat', sans-serif;
     width: 30%;
-    height: 70%;
+    height: 100%;
     background: #C5B3F9;
     border-radius: 10px;
     border: none;
     content: "\025be";
-    margin-left: 10px;
     outline: none;
     font-size: 17px;
 }

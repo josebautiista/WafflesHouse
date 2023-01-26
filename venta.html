@@ -1,0 +1,10 @@
+<html>
+    <p id="ventaTotal"></p>
+</html>
+
+<script>
+    var total=0
+    var ventaTotal = localStorage.getItem("ventatotal");
+    total= total+ parseInt(ventaTotal)
+    document.getElementById("ventaTotal").innerHTML=total
+</script>
