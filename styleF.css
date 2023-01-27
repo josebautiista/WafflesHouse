@@ -1,0 +1,77 @@
+body{
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+p{
+    margin: 0;
+}
+.titulo{
+    text-align: center;
+}
+
+.legal{
+    text-align: center;
+}
+
+.datos-cliente{
+    display: flex;
+    flex-direction: column;
+}
+
+.datos-cliente div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.orden h1{
+    text-align: center;
+}
+
+.subtitulo h4{
+    margin: 0;
+}
+
+.subtitulo{
+    display: flex;
+    justify-content: space-between;
+}
+
+#orden div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.resumenPago{
+    display: flex;
+    flex-direction: column;
+}
+
+.resumenPago div{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.pagar p{
+    font-size: 20px;
+}
+
+hr{
+    height: 1px;
+    background: black;
+}

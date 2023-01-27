@@ -1,51 +1,111 @@
-<div id="factura">
-    <h1>Factura</h1>
-    <table id="tabla">
-      <tr>
-        <th>Descripción</th>
-        <th>Cantidad</th>
-        <th>Precio unitario</th>
-        <th>Importe</th>
-    <!--  </tr>
-      <tr>
-        <td id="articulo">Artículo 1</td>
-        <td>2</td>
-        <td>$10.00</td>
-        <td>$20.00</td>
-      </tr>
-      <tr>
-        <td>Artículo 2</td>
-        <td>1</td>
-        <td>$20.00</td>
-        <td>$20.00</td>
-      </tr>
-      -->
-      <tr>
-        <td colspan="3">Subtotal</td>
-        <td>$40.00</td>
-      </tr>
-      <tr>
-        <td colspan="3">Impuestos (10%)</td>
-        <td>$4.00</td>
-      </tr>
-      <tr>
-        <td colspan="3">Total</td>
-        <td id="ventaTotal"></td>
-      </tr>
-    </table>
-  </div>
-  <script>
-    var nombre = localStorage.getItem("nombres");
-    var cantidad = localStorage.getItem("cantidad")
-    console.log(nombre)
-    for (let i = 0; i < cantidad; i++) {
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>factura</title>
+    <link rel="stylesheet" href="styleF.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');</style>
+  </head>
 
-      for (let i = 0; i < nombre.length; i++) {
-        var fila = document.createElement("tr")
-        fila.innerHTML= nombre
-        document.querySelector("#tabla").appendChild(fila);    
-      }
-      
+<body>
+
+<section class="logo">
+  <div>
+    <img src="logo.jpg" alt="">
+  </div>
+  <div class="titulo">
+    <p>Heladeria Waffle House</p>
+    <p>NIT: 123456789</p>
+    <p>NO RESPONSABLE DE IVA</p>
+    <P>Calle 15 # 37-54</P>
+    <p>Neiva - Huila</p>
+    <p>TEL: 3156748390</p>
+  </div>
+</section>
+
+<section class="legal">
+  <h2>Factura de Venta POS</h2>
+  <p>Fecha de registro: xxxxx</p>
+  <p>Vendedor: xxxxx</p>
+  <p id="metodo">hola</p>
+</section>
+
+<hr>
+
+<section class="datos-cliente">
+  <div>
+    <p>CLIENTE:</p><p>xxxx</p>
+  </div>
+  <div>
+    <p>IDENTIFICACION:</p><p>xxxxx</p>
+  </div>
+  <div>
+    <p>TELEFONO:</p><P>XXXXXX</P>
+  </div>
+  <div>
+    <p>DIRECCIÓN:</p><P>Neiva</P>
+  </div>
+</section>
+
+<section class="orden">
+  <h1>PEDIDO</h1>
+  <div class="subtitulo">
+    <h4>DESCRIPCIÓN</h4> <h4>PRECIO</h4>
+  </div>
+<hr>
+  <div id="orden">
+
+  </div>
+<hr>
+</section>
+
+<section class="resumenPago">
+<div>
+<p>TOTAL:</p>
+<p id="total"></p>
+</div>
+<div>
+<p>DESCUENTO:</p>
+<p id="descuento"></p>
+</div>
+<div class="pagar">
+<p>TOTAL A PAGAR :</p>
+<p id="totalPagar"></p>
+</div>
+</section>
+
+<hr>
+
+  <script>
+    var nombre = localStorage.getItem("nombre")
+    var nombres=nombre.split(",")
+    var precio = localStorage.getItem("precio")
+    var precios = precio.split(",")
+    var cantidad = localStorage.getItem("cantidad")
+    var total = localStorage.getItem("total")
+    var descuento = localStorage.getItem("descuento")
+    var totalPagar = localStorage.getItem("totalPagar")
+    var metodo = localStorage.getItem("metodo")
+
+    for (let i = 0; i < cantidad; i++) {
+      var fila = document.createElement("div")
+      fila.id=i
+      var columna = document.createElement("p")
+      columna.innerHTML= nombres[i]
+      fila.appendChild(columna)
+      document.querySelector("#orden").appendChild(fila);    
     }
-    
+
+    for (let i = 0; i < cantidad; i++) {
+      var fila = document.createElement("p")
+      fila.innerHTML= "$ " + precios[i]
+      document.getElementById(i).appendChild(fila);    
+    }
+
+    document.getElementById("total").innerHTML= total
+    document.getElementById("descuento").innerHTML= descuento
+    document.getElementById("totalPagar").innerHTML=totalPagar
+    document.getElementById("metodo").innerHTML= "Forma de Pago: " + metodo
 </script>
+
+</body>
