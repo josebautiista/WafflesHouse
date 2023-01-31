@@ -74,11 +74,36 @@ main{
 
 .resumenItem{
     display: flex;
-    padding: 10px;
+    flex-direction: column;
+    padding: 20px;
     background: #FEC5E5;
-    justify-content: space-between;
     margin: 3px 0;
     border-radius: 30px;
+    gap: 5px;
+}
+
+.descripcion{
+    display: flex;
+    justify-content: space-between;
+}
+
+.adiciones{
+    display: flex;
+    color: #FEFEFE;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.adiciones p{
+    width: 19%;
+}
+
+.adiciones select{
+    width: 19%;
+    border: none;
+    outline: none;
+    border-radius: 15%;
 }
 
 .resumen-totalPagar{

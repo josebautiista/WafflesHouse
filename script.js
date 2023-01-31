@@ -3,15 +3,23 @@ var descuento=0
 var totalPagar=0
 
 class Productos {
-    constructor(nombre, precio) {
+    constructor(nombre, precio, adiciones) {
       this.nombre = nombre;
       this.precio = precio;
+      this.adiciones = adiciones;
     }
     mostrar(){
         return this.nombre + " " + this.precio
     }
+
+    mostrarA(){
+            return this.adiciones
+    }
 }
-var bananas =[new Productos("split", 13000),new Productos("bananita", 14000)] 
+
+var sabores = ["vainilla", "chocolate", "brwonie"]
+var adicionesBa = ["Galleta", "helado", "vainilla", "chocolate", "brownie"]
+var bananas =[new Productos("split", 13000, adicionesBa),new Productos("bananita", 14000)] 
 var bubbles = [new Productos("Sencillo",8500),new Productos("Fresas",15000),new Productos("House",13000),new Productos("Oreo",12000),new Productos("Colores",12000),new Productos("Chocodurazno",13000),new Productos("Fresaschocolatosas", 14000),new Productos("Frutal 1", 13000),new Productos("Frutal 2", 13000)]
 var waffles = [new Productos("Fress", 14000),new Productos("Medio Waffle", 8000),new Productos("BOOM", 13500),new Productos("MixFrutt",13000),new Productos("Bananaqueso",10000),new Productos("House",13000),new Productos("Dulce Crema", 10000),new Productos("Frutts", 14000),new Productos("chocofrut", 10000)]
 
@@ -94,15 +102,48 @@ function banana() {
             nuevoDiv.classList.add("resumenItem");
             document.querySelector(".resumen-productos").appendChild(nuevoDiv);
 
+            var descripcion = document.createElement("div");
+            descripcion.classList.add("descripcion");
+            descripcion.id="resumenProductos"
+            nuevoDiv.appendChild(descripcion);
+
             var nuevoItem = document.createElement("p");
             nuevoItem.id=bananas[i].nombre
             nuevoItem.innerHTML = "Banana " + bananas[i].nombre
-            nuevoDiv.appendChild(nuevoItem);
+            descripcion.appendChild(nuevoItem);
                
             var nuevoPrecio = document.createElement("p");
             nuevoPrecio.innerHTML = bananas[i].precio
-            nuevoDiv.appendChild(nuevoPrecio);
-            
+            descripcion.appendChild(nuevoPrecio);
+
+            var adicionDiv = document.createElement("div")
+            adicionDiv.classList.add("adiciones")
+            nuevoDiv.appendChild(adicionDiv)
+
+
+            var helados = document.createElement("select");
+
+            for (let i = 0; i < sabores.length; i++) {
+                var opcion = document.createElement("option");
+                opcion.value = sabores[i];
+                opcion.text = sabores[i];
+
+                helados.add(opcion);        
+            }
+
+            adicionDiv.appendChild(helados);
+
+            for (let z = 0; z < bananas[i].mostrarA().length; z++) {
+                var add = document.createElement("input")
+                add.type = "checkbox"
+                add.id=bananas[i].mostrarA()[z]
+                adicionDiv.appendChild(add)
+
+                var textoCheck = document .createElement("p")
+                textoCheck.innerHTML = bananas[i].mostrarA()[z]
+                adicionDiv.appendChild(textoCheck)
+            }
+
         })
 
     }
@@ -113,12 +154,16 @@ function capturar() {
    var total = parseInt(document.getElementById("Total").textContent) 
    var descuento = parseInt(document.getElementById("descuento").textContent)
    var totalPagar= parseInt(document.getElementById("totalPagar").textContent)  
-   var contenidoDiv = document.getElementById("resumenProductos").children
+   var nombrePrecio = document.getElementById("resumenProductos").children
+   var contenido=document.querySelector(".resumen-productos").children
    var nombreItem=[]
    var precioItem=[]
-   for (let i = 0; i < contenidoDiv.length; i++) {
-    nombreItem.push(contenidoDiv[i].children[0].textContent)
-    precioItem.push(contenidoDiv[i].children[1].textContent)
+   for (let i = 0; i < contenido.length; i++) {
+    for (let z = 0; z < nombrePrecio.length; z++) {
+        nombreItem.push(nombrePrecio[0].textContent)
+        precioItem.push(nombrePrecio[1].textContent)
+        
+    }
     console.log(nombreItem, precioItem) 
     }
 
@@ -128,7 +173,7 @@ function capturar() {
     localStorage.setItem("metodo",metodo)
     localStorage.setItem("nombre",nombreItem)
     localStorage.setItem("precio", precioItem);
-    localStorage.setItem("cantidad", contenidoDiv.length)
+    localStorage.setItem("cantidad", nombrePrecio.length)
     window.location.href = "factura.html";
    
 }
