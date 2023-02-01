@@ -1,6 +1,7 @@
 var total= 0
 var descuento=0
 var totalPagar=0
+var menos=0
 
 class Productos {
     constructor(nombre, precio, adiciones) {
@@ -108,9 +109,20 @@ function banana() {
             nuevoDiv.appendChild(descripcion);
 
             var nuevoItem = document.createElement("p");
+            nuevoItem.className="nombreBoton"
             nuevoItem.id=bananas[i].nombre
             nuevoItem.innerHTML = "Banana " + bananas[i].nombre
             descripcion.appendChild(nuevoItem);
+
+            var eliminar = document.createElement("button")
+            eliminar.innerHTML="x"
+            eliminar.className="eliminar"
+            nuevoItem.appendChild(eliminar)
+            eliminar.addEventListener("click", function () {
+                nuevoDiv.remove();
+                document.getElementById("Total").textContent= total= total - bananas[i].precio
+                document.getElementById("totalPagar").textContent= totalPagar=total
+            })
                
             var nuevoPrecio = document.createElement("p");
             nuevoPrecio.innerHTML = bananas[i].precio
@@ -134,14 +146,15 @@ function banana() {
             adicionDiv.appendChild(helados);
 
             for (let z = 0; z < bananas[i].mostrarA().length; z++) {
-                var add = document.createElement("input")
-                add.type = "checkbox"
-                add.id=bananas[i].mostrarA()[z]
-                adicionDiv.appendChild(add)
 
                 var textoCheck = document .createElement("p")
                 textoCheck.innerHTML = bananas[i].mostrarA()[z]
                 adicionDiv.appendChild(textoCheck)
+
+                var add = document.createElement("input")
+                add.type = "checkbox"
+                add.id=bananas[i].mostrarA()[z]
+                textoCheck.appendChild(add)
             }
 
         })
@@ -155,13 +168,13 @@ function capturar() {
    var descuento = parseInt(document.getElementById("descuento").textContent)
    var totalPagar= parseInt(document.getElementById("totalPagar").textContent)  
    var nombrePrecio = document.getElementById("resumenProductos").children
-   var contenido=document.querySelector(".resumen-productos").children
+   var contenido= document.querySelector(".resumen-productos").children     
    var nombreItem=[]
    var precioItem=[]
    for (let i = 0; i < contenido.length; i++) {
     for (let z = 0; z < nombrePrecio.length; z++) {
-        nombreItem.push(nombrePrecio[0].textContent)
-        precioItem.push(nombrePrecio[1].textContent)
+        nombreItem.push(nombrePrecio[1].textContent)
+        precioItem.push(nombrePrecio[2].textContent)
         
     }
     console.log(nombreItem, precioItem) 
@@ -173,7 +186,7 @@ function capturar() {
     localStorage.setItem("metodo",metodo)
     localStorage.setItem("nombre",nombreItem)
     localStorage.setItem("precio", precioItem);
-    localStorage.setItem("cantidad", nombrePrecio.length)
+    localStorage.setItem("cantidad", contenido.length)
     window.location.href = "factura.html";
    
 }
