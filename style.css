@@ -5,6 +5,7 @@ body{
     height: 100%;
     max-width: auto;
     min-width: 1350px;
+    display: flex;
 }
 header{
     width: 90%;
@@ -47,7 +48,15 @@ nav a:hover{
 }
 
 /*principal*/
+.menu{
+    width: 5%;
+    height: 500px;
+    margin-right: 0;
+}
 
+.principal{
+    width: 95%;
+}
 main{
     width: 90%;
     margin: 10px auto; 
@@ -210,6 +219,10 @@ main{
     background: #F8599D;
     font-size: 12px;
     color: #FEFEFE;
+}
+
+button {
+    font-weight: bold;
 }
 
 .categorias button:hover{
