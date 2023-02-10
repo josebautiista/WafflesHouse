@@ -4,10 +4,11 @@ var totalPagar=0
 var menos=0
 
 class Productos {
-    constructor(nombre, precio, adiciones) {
+    constructor(nombre, precio, adiciones, imagen) {
       this.nombre = nombre;
       this.precio = precio;
       this.adiciones = adiciones;
+      this.imagen = imagen;
     }
     mostrar(){
         return this.nombre + " " + this.precio
@@ -21,16 +22,16 @@ class Productos {
 var saboresHelado = ["vainilla", "chocolate", "brownie"]
 
 var adicionesBanana = ["Galleta", "helado", "vainilla", "chocolate", "brownie"]
-var bananas =[new Productos("split", 13000, adicionesBanana),new Productos("bananita", 14000,adicionesBanana)] 
+var bananas =[new Productos("Split", 13000, adicionesBanana),new Productos("Bananita", 14000,adicionesBanana)] 
 
 var adicionesBubble = ["Galleta", "helado", "vainilla", "chocolate", "brownie"]
-var bubbles = [new Productos("Sencillo",8500,adicionesBubble),new Productos("Fresas",15000,adicionesBubble),new Productos("House",13000, adicionesBubble),new Productos("Oreo",12000, adicionesBubble),new Productos("Colores",12000, adicionesBubble),new Productos("Chocodurazno",13000, adicionesBubble),new Productos("Fresaschocolatosas", 14000, adicionesBubble),new Productos("Frutal 1", 13000, adicionesBubble),new Productos("Frutal 2", 13000, adicionesBubble)]
+var bubbles = [new Productos("Sencillo",8500,adicionesBubble),new Productos("Fresas",15000,adicionesBubble),new Productos("House",13000, adicionesBubble, "imagenes/BubbleHouse.png"),new Productos("Oreo",12000, adicionesBubble),new Productos("Colores",12000, adicionesBubble ,"imagenes/BubbleColores.png"),new Productos("Chocodurazno",13000, adicionesBubble, "imagenes/BubbleChocoDurazno.png"),new Productos("Fresaschocolatosas", 14000, adicionesBubble),new Productos("Frutal 1", 13000, adicionesBubble, "imagenes/BubbleFresas_1.png"),new Productos("Frutal 2", 13000, adicionesBubble, "imagenes/BubbleFresas_2.png")]
 
 var adicionesWaffle = [["galleta"],"Galleta", "helado", "vainilla", "chocolate", "brownie"]
-var waffles = [new Productos("Fress", 14000, adicionesWaffle[0]),new Productos("Medio Waffle", 8000, adicionesWaffle),new Productos("BOOM", 13500, adicionesWaffle),new Productos("MixFrutt",13000, adicionesWaffle),new Productos("Bananaqueso",10000, adicionesWaffle),new Productos("House",13000, adicionesWaffle),new Productos("Dulce Crema", 10000, adicionesWaffle),new Productos("Frutts", 14000, adicionesWaffle),new Productos("chocofrut", 10000, adicionesWaffle)]
+var waffles = [new Productos("Fress", 14000, adicionesWaffle[0]),new Productos("Medio Waffle", 8000, adicionesWaffle),new Productos("BOOM", 13500, adicionesWaffle),new Productos("MixFrutt",13000, adicionesWaffle, "imagenes/WaffleMixFruts.png"),new Productos("Bananaqueso",10000, adicionesWaffle),new Productos("House",13000, adicionesWaffle),new Productos("Dulce Crema", 10000, adicionesWaffle),new Productos("Frutts", 14000, adicionesWaffle),new Productos("chocofrut", 10000, adicionesWaffle)]
 
 var adicionesEnsalada = [["galleta"],"Galleta", "helado", "vainilla", "chocolate", "brownie"]
-var ensaladas = [new Productos("Personal", 10000, adicionesEnsalada[0]),new Productos("Grande", 15000, adicionesEnsalada),new Productos("House", 17000, adicionesEnsalada),new Productos("Parfait",7500, adicionesEnsalada),new Productos("Boul Tropical",9000, adicionesEnsalada)]
+var ensaladas = [new Productos("Personal", 10000, adicionesEnsalada[0]),new Productos("Grande", 15000, adicionesEnsalada),new Productos("House", 17000, adicionesEnsalada, "imagenes/EnsaladaHouse.png"),new Productos("Parfait",7500, adicionesEnsalada),new Productos("Boul Tropical",9000, adicionesEnsalada)]
 
 var adicionesSalpicon = [["galleta"],"Galleta", "helado", "vainilla", "chocolate", "brownie"]
 var salpicones = [new Productos("Con Helado Pequeño", 5500, adicionesSalpicon[0]),new Productos("Con Helado Mediano", 7000, adicionesSalpicon),new Productos("Con Helado Grande", 9000, adicionesSalpicon),new Productos("Con Helado Y Queso Pequeño", 6500, adicionesSalpicon),new Productos("Con Helado Y Queso Mediano", 8500, adicionesSalpicon),new Productos("Con Helado Y Queso Grande", 10500, adicionesSalpicon)]
@@ -61,7 +62,15 @@ function bubble(){
         const producto = document.createElement("button");
         producto.id=bubbles[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = bubbles[i].mostrar()
+        producto.textContent = bubbles[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = bubbles[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+bubbles[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(bubbles[i].nombre).addEventListener("click", function () {
@@ -140,7 +149,15 @@ function waffle(){
         const producto = document.createElement("button");
         producto.id=waffles[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = waffles[i].mostrar()
+        producto.textContent = waffles[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = waffles[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+waffles[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(waffles[i].nombre).addEventListener("click", function () {
@@ -219,7 +236,15 @@ function banana() {
         const producto = document.createElement("button");
         producto.id=bananas[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = bananas[i].mostrar()
+        producto.textContent = bananas[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = bananas[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+bananas[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(bananas[i].nombre).addEventListener("click", function () {
@@ -298,7 +323,15 @@ function ensalada() {
         const producto = document.createElement("button");
         producto.id=ensaladas[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = ensaladas[i].mostrar()
+        producto.textContent = ensaladas[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = ensaladas[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+ensaladas[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(ensaladas[i].nombre).addEventListener("click", function () {
@@ -377,7 +410,15 @@ function salpicon() {
         const producto = document.createElement("button");
         producto.id=salpicones[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = salpicones[i].mostrar()
+        producto.textContent = salpicones[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = salpicones[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+salpicones[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(salpicones[i].nombre).addEventListener("click", function () {
@@ -468,7 +509,15 @@ function brownie() {
         const producto = document.createElement("button");
         producto.id=brownies[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = brownies[i].mostrar()
+        producto.textContent = brownies[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = brownies[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+brownies[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(brownies[i].nombre).addEventListener("click", function () {
@@ -544,7 +593,15 @@ function malteadaFrappe() {
         const producto = document.createElement("button");
         producto.id=malteadasFrappes[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = malteadasFrappes[i].mostrar()
+        producto.textContent = malteadasFrappes[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = malteadasFrappes[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+malteadasFrappes[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(malteadasFrappes[i].nombre).addEventListener("click", function () {
@@ -565,7 +622,7 @@ function malteadaFrappe() {
             var nuevoItem = document.createElement("p");
             nuevoItem.className="nombreBoton"
             nuevoItem.id=malteadasFrappes[i].nombre
-            nuevoItem.innerHTML = "Brownie " + malteadasFrappes[i].nombre
+            nuevoItem.innerHTML = malteadasFrappes[i].nombre
             descripcion.appendChild(nuevoItem);
 
             var eliminar = document.createElement("button")
@@ -621,7 +678,15 @@ function copa() {
         const producto = document.createElement("button");
         producto.id=copasHelados[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = copasHelados[i].mostrar()
+        producto.textContent = copasHelados[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = copasHelados[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+copasHelados[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(copasHelados[i].nombre).addEventListener("click", function () {
@@ -697,7 +762,15 @@ function canasta() {
         const producto = document.createElement("button");
         producto.id=canastas[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = canastas[i].mostrar()
+        producto.textContent = canastas[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = canastas[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+canastas[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(canastas[i].nombre).addEventListener("click", function () {
@@ -774,7 +847,15 @@ function infantil() {
         const producto = document.createElement("button");
         producto.id=menuInfantil[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = menuInfantil[i].mostrar()
+        producto.textContent = menuInfantil[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = menuInfantil[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+menuInfantil[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(menuInfantil[i].nombre).addEventListener("click", function () {
@@ -851,7 +932,15 @@ function bebida() {
         const producto = document.createElement("button");
         producto.id=bebidas[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = bebidas[i].mostrar()
+        producto.textContent = bebidas[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = bebidas[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+bebidas[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(bebidas[i].nombre).addEventListener("click", function () {
@@ -901,7 +990,15 @@ function adicion() {
         const producto = document.createElement("button");
         producto.id=adiciones[i].nombre
         producto.classList.add("productosNuevo");
-        producto.textContent = adiciones[i].mostrar()
+        producto.textContent = adiciones[i].nombre
+
+        var imagenProducto = new Image()
+        imagenProducto.src = adiciones[i].imagen
+        producto.appendChild(imagenProducto)
+
+        var precioBoton=document.createElement("p")
+        precioBoton.textContent ="$"+adiciones[i].precio
+        producto.appendChild(precioBoton)
         document.querySelector(".productos").appendChild(producto);
         
         document.getElementById(adiciones[i].nombre).addEventListener("click", function () {
@@ -938,10 +1035,6 @@ function adicion() {
             var nuevoPrecio = document.createElement("p");
             nuevoPrecio.innerHTML = adiciones[i].precio
             descripcion.appendChild(nuevoPrecio);
-
-            var adicionDiv = document.createElement("div")
-            adicionDiv.classList.add("adiciones")
-            nuevoDiv.appendChild(adicionDiv)
 
             if (adiciones[i].nombre=="Bola Helado") {
                 var helados = document.createElement("select");

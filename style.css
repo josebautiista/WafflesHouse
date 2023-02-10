@@ -248,6 +248,12 @@ button {
     align-items: center;
 }
 
+.productosNuevo img {
+    width: 60%;
+    height: 70%;
+    border-radius: 40%;
+}
+
 .productos::-webkit-scrollbar {
     display: none;
 }
@@ -261,6 +267,17 @@ button {
     border-radius: 30px;
     border: none;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+#Fresaschocolatosas{
+    font-size: 11px;
 }
 
 .productosNuevo:hover{
